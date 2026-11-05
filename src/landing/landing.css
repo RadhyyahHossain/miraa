@@ -1,0 +1,67 @@
+.lp {
+  /* Landing uses pure white and neutral grays; orange is reserved for actions. */
+  --ground: #ffffff; --paper: #ffffff; --line: #ececec; --line-soft: #f2f2f2;
+  --soft: #f7f7f7; --chip: #f3f3f3; --hover: #f5f5f5; --pine-tint: #fdeee3;
+  background: var(--ground); color: var(--ink); font-size: 16px; overflow-x: hidden; }
+.lp a:not(.btn) { color: var(--ink-2); }
+.lp a:not(.btn):hover { color: var(--ink); }
+.lp-wrap { max-width: 1200px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+@media (min-width: 720px) { .lp-wrap { padding-left: 48px; padding-right: 48px; } }
+
+.lp-nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; padding-top: env(safe-area-inset-top); }
+
+.lp-hero { padding-top: clamp(64px, 9vw, 128px); display: flex; flex-direction: column; gap: 22px; }
+.lp-hero .lp-lede a { color: var(--ink); text-decoration: underline; text-decoration-color: #f2c4a6; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+.lp-hero .lp-lede a:hover { text-decoration-color: var(--pine); }
+.lp-trust { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--muted); }
+.lp-h1 { font: 400 clamp(38px, 4.4vw, 56px)/1.08 var(--display); letter-spacing: -0.025em; margin: 0; max-width: none; text-wrap: pretty; }
+.lp-h2 { font: 400 clamp(34px, 4.2vw, 56px)/1.03 var(--display); letter-spacing: -0.025em; margin: 0; text-wrap: balance; }
+.lp-lede { margin: 0; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.6; max-width: 56ch; }
+.lp-cta { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; margin-top: 6px; }
+
+.lp-sec { padding-top: clamp(72px, 10vw, 140px); padding-bottom: clamp(72px, 10vw, 140px); }
+/* How it works: one step per row, big animation on a soft warm stage, alternating sides. */
+.lp-steps { display: flex; flex-direction: column; gap: clamp(56px, 8vw, 112px); margin-top: clamp(48px, 6vw, 80px); }
+.lp-step { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+.lp-step:nth-child(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.lp-step:nth-child(even) .lp-step-copy { order: 2; }
+.lp-step-copy { display: flex; flex-direction: column; gap: 14px; max-width: 420px; }
+.lp-step-title { font: 400 clamp(28px, 3vw, 40px)/1.1 var(--display); letter-spacing: -0.02em; margin: 0; }
+.lp-step-body { margin: 0; font-size: 17.5px; line-height: 1.6; }
+.lp-stage { background: linear-gradient(160deg, #faf5f0, #f3ebe3); border-radius: 28px; padding: clamp(20px, 4vw, 56px); }
+@media (max-width: 860px) {
+  .lp-step, .lp-step:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .lp-step:nth-child(even) .lp-step-copy { order: 0; }
+}
+.lp-n { font-size: 13px; font-weight: 500; color: var(--faint); }
+
+
+/* Bottom call to action: a flat night card with the Mira mark large and cropped off the right edge. */
+.lp-banner {
+  position: relative; overflow: hidden; border-radius: 32px; min-height: clamp(380px, 34vw, 460px); display: flex; align-items: center;
+  color: #f6efe9;
+  background: #1c1512;
+}
+.lp-banner::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06); pointer-events: none; }
+.lp-banner-mark { position: absolute; width: min(46%, 520px); height: auto; right: -6%; top: 50%; transform: translateY(-50%); color: var(--pine); }
+.lp-banner-copy { position: relative; display: flex; flex-direction: column; gap: 22px; padding: clamp(36px, 6vw, 72px); max-width: 620px; }
+.lp-banner .lp-mark { background: rgba(234, 108, 44, 0.22); color: #ffd9c2; border-radius: 4px; padding: 0 8px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.lp-btn-light { background: #fff8f2; color: #231c18; }
+.lp-btn-light:hover { background: #ffffff; color: #231c18; }
+@media (max-width: 720px) {
+  .lp-banner { align-items: flex-end; min-height: 520px; }
+  .lp-banner-mark { width: 70%; right: -14%; top: -10%; transform: none; }
+}
+
+.lp-foot { border-top: 1px solid var(--line); padding-top: 40px; padding-bottom: 56px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 14px; }
+
+/* Soft, quiet motion for text. Everything is visible without JavaScript or with reduced motion. */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.lp-h1 .word { display: inline-block; opacity: 0; transform: translateY(0.18em); filter: blur(4px); animation: word-in 0.9s var(--ease) forwards; white-space: pre; }
+@keyframes word-in { to { opacity: 1; transform: none; filter: blur(0); } }
+.fade-in { opacity: 0; animation: fade-in 1s var(--ease) forwards; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .lp-h1 .word, .fade-in { opacity: 1; transform: none; filter: none; animation: none; transition: none; }
+}

@@ -1,0 +1,611 @@
+<title>Mira Brand Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Layout: a spec sheet. Mono label column on the left, work on the right, hairline rules between sections, the mark always drawn from one 120 unit grid. */
+:root {
+  --bg: #FFFFFF;
+  --wash: #F5F5F2;
+  --fg: #151515;
+  --muted: #6B6A65;
+  --rule: #E3E2DD;
+  --signal: #EE5D1B;
+  --ink-c: #151515;
+  --paper-c: #FFFFFF;
+  --signal-c: #EE5D1B;
+  --f-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-text: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111110; --wash: #1B1B19; --fg: #F1F0EB; --muted: #9C9B94; --rule: #2E2D2A; --signal: #F47A3C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111110; --wash: #1B1B19; --fg: #F1F0EB; --muted: #9C9B94; --rule: #2E2D2A; --signal: #F47A3C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-text); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1180px; margin: 0 auto; }
+svg { display: block; }
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.mono { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); letter-spacing: .01em; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -.015em; }
+h3 { font-size: 24px; line-height: 1.15; letter-spacing: -.005em; }
+p { margin: 0; max-width: 60ch; }
+.lede { font-size: 19px; line-height: 1.5; }
+
+/* top bar */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 24px; flex-wrap: wrap; }
+.top svg { height: 26px; width: auto; color: var(--fg); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 64px; align-items: center; padding-block: 56px 88px; }
+.hero-mark { color: var(--fg); width: 100%; max-width: 460px; }
+.hero-copy { display: grid; gap: 28px; min-width: 0; }
+.hero-copy .wm { width: 220px; max-width: 70%; color: var(--fg); }
+.spec { display: grid; border-top: 1px solid var(--rule); margin: 0; }
+.spec div { display: flex; justify-content: space-between; gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--rule); }
+.spec dt { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); }
+.spec dd { margin: 0; font-family: var(--f-mono); font-size: 12.5px; text-align: right; }
+
+/* sections */
+.s { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; padding-block: 80px; border-top: 1px solid var(--rule); }
+.s-head { display: grid; gap: 14px; align-content: start; }
+.s-body { display: grid; gap: 48px; min-width: 0; }
+.panel { background: var(--wash); border-radius: 4px; }
+.cap { display: grid; gap: 6px; }
+
+/* strategy */
+.words { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.words ul { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
+.words li { padding-block: 10px; border-bottom: 1px solid var(--rule); font-size: 17px; }
+.words .not li { color: var(--muted); }
+.concept { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.concept figure { margin: 0; display: grid; gap: 12px; }
+.concept svg { width: 56px; color: var(--fg); }
+.concept b { font-family: var(--f-display); font-weight: 400; font-size: 28px; line-height: 1; }
+
+/* construction */
+.construct { padding: 32px; overflow-x: auto; }
+.construct svg { width: 100%; max-width: 640px; min-width: 300px; margin: 0 auto; color: var(--fg); }
+.gl { stroke: var(--rule); stroke-width: .4; fill: none; }
+.frame { stroke: var(--muted); stroke-width: .4; fill: none; opacity: .6; }
+.dash { stroke: var(--muted); stroke-width: .4; stroke-dasharray: 2 2; fill: none; opacity: .8; }
+.ms { stroke: var(--signal); stroke-width: .7; fill: none; }
+.ms-t { font-family: var(--f-mono); font-size: 5px; fill: var(--muted); }
+.ms-n { font-family: var(--f-display); font-size: 14px; fill: var(--fg); }
+
+/* wordmark */
+.wm-big { padding: 48px 32px; overflow-x: auto; }
+.wm-big svg { width: 100%; max-width: 680px; min-width: 300px; margin: 0 auto; color: var(--fg); }
+.notes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.notes div { display: grid; gap: 6px; border-top: 1px solid var(--fg); padding-top: 12px; }
+.notes p { font-size: 15px; color: var(--muted); }
+
+/* lockups */
+.lockups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.tile { display: grid; place-items: center; min-height: 220px; padding: 32px; border-radius: 4px; position: relative; }
+.tile .mono { position: absolute; left: 16px; bottom: 12px; }
+.tile.light { background: var(--paper-c); color: var(--ink-c); box-shadow: inset 0 0 0 1px var(--rule); }
+.tile.light .mono { color: #6B6A65; }
+.tile.dark { background: var(--ink-c); color: var(--paper-c); }
+.tile.dark .mono { color: #9C9B94; }
+.tile.wash { background: var(--wash); color: var(--fg); }
+.clear svg { width: 100%; max-width: 420px; }
+.sizes { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 32px 40px; padding: 32px; }
+.sizes figure { margin: 0; display: grid; gap: 10px; justify-items: start; color: var(--fg); }
+.donts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.donts figure { margin: 0; display: grid; gap: 10px; }
+.donts .tile { min-height: 150px; padding: 24px; }
+.donts svg { width: 72px; }
+.x { color: var(--signal); }
+
+/* color */
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.sw { border-radius: 4px; min-height: 180px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.sw b { font-family: var(--f-display); font-weight: 400; font-size: 26px; display: block; }
+.sw span { font-family: var(--f-mono); font-size: 12px; display: block; }
+.sw p { font-size: 14px; }
+.ratio { display: flex; height: 14px; border-radius: 2px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--rule); }
+
+/* type */
+.specimen { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.specimen > div { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; padding-block: 28px; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.t-display { font-family: var(--f-display); font-size: clamp(36px, 5vw, 64px); line-height: 1.02; letter-spacing: -.02em; }
+.t-text { font-size: 18px; line-height: 1.55; }
+.t-mono { font-family: var(--f-mono); font-size: 14px; line-height: 1.7; font-variant-numeric: tabular-nums; }
+.scale { display: grid; gap: 14px; }
+.scale div { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; }
+.scale .mono { width: 92px; flex: none; }
+
+/* voice */
+.voice { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.voice > div { display: grid; gap: 10px; align-content: start; }
+.pairs { display: grid; border-top: 1px solid var(--rule); }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding-block: 16px; border-bottom: 1px solid var(--rule); }
+.pair p { font-size: 17px; }
+.pair .no { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--signal); text-decoration-thickness: 1px; }
+
+/* system */
+.sys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.poster { aspect-ratio: 4 / 5; max-width: 100%; border-radius: 4px; overflow: hidden; position: relative; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.poster.ink { background: var(--ink-c); color: var(--paper-c); }
+.poster.paper { background: var(--paper-c); color: var(--ink-c); box-shadow: inset 0 0 0 1px var(--rule); }
+.poster.wash { background: var(--wash); color: var(--fg); }
+.poster h3 { font-size: clamp(22px, 2.4vw, 30px); position: relative; z-index: 1; max-width: 12ch; }
+.poster .crop { position: absolute; }
+.poster .foot { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 12px; }
+.poster .foot svg { height: 16px; width: auto; }
+.poster .foot span { font-family: var(--f-mono); font-size: 11px; opacity: .7; }
+.pattern { overflow: hidden; border-radius: 4px; background: var(--wash); color: var(--fg); }
+.pattern svg { width: 100%; height: auto; }
+
+.icons { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 28px; padding: 32px; }
+.icons figure { margin: 0; display: grid; gap: 10px; justify-items: start; }
+.appicon { background: var(--ink-c); color: var(--paper-c); border-radius: 22.5%; display: grid; place-items: center; }
+.appicon svg { width: 58%; }
+.tab { display: flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--rule); border-radius: 8px 8px 0 0; padding: 8px 14px; font-size: 13px; color: var(--fg); }
+.tab svg { width: 16px; height: 16px; }
+
+.duo { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+
+/* visit brief sheet: a printed PDF, so it keeps paper colors in both themes */
+.sheet-wrap { padding: 32px; display: grid; place-items: center; }
+.sheet { background: #FFFFFF; color: #151515; width: 100%; max-width: 520px; aspect-ratio: 8.5 / 11; padding: 7% 8%; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 12px 32px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 14px; font-size: 11px; line-height: 1.45; overflow: hidden; }
+.sheet .hd { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid #151515; }
+.sheet .hd svg { height: 14px; width: auto; color: #151515; }
+.sheet .hd span, .sheet .k { font-family: var(--f-mono); font-size: 8.5px; color: #6B6A65; }
+.sheet h4 { font-family: var(--f-display); font-weight: 400; font-size: 22px; line-height: 1.1; margin: 0; }
+.sheet .grp { display: grid; gap: 5px; }
+.sheet .row { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 6px; align-items: baseline; padding-block: 4px; border-bottom: 1px solid #E3E2DD; }
+.sheet .row i { width: 6px; height: 6px; border-radius: 50%; background: #EE5D1B; display: block; transform: translateY(-1px); }
+.sheet .row i.o { background: none; }
+.sheet .row em { font-style: normal; font-family: var(--f-mono); font-size: 8.5px; color: #6B6A65; }
+.sheet .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.sheet .ex { margin-top: auto; display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 8px; color: #6B6A65; }
+
+/* in-app readiness card */
+.ui { padding: 32px; display: grid; gap: 16px; }
+.card { background: var(--bg); border: 1px solid var(--rule); border-radius: 14px; padding: 20px; display: grid; gap: 16px; }
+.card-top { display: flex; gap: 14px; align-items: center; }
+.card-top svg { width: 40px; height: 40px; flex: none; color: var(--fg); }
+.card-top b { font-weight: 500; display: block; }
+.card-top span { font-size: 14px; color: var(--muted); }
+.checks { display: grid; gap: 0; }
+.checks div { display: flex; align-items: center; gap: 12px; padding-block: 9px; border-top: 1px solid var(--rule); font-size: 15px; }
+.checks svg { width: 16px; height: 16px; flex: none; color: var(--fg); }
+.checks span { margin-left: auto; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.checks .new { color: var(--signal); }
+.btn { font: inherit; font-weight: 500; font-size: 15px; background: var(--fg); color: var(--bg); border: 0; border-radius: 999px; padding: 12px 18px; cursor: pointer; justify-self: start; }
+.btn:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+
+/* motion */
+.motion { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 40px; align-items: center; padding: 40px; }
+.motion svg { width: 140px; color: var(--fg); }
+.fill { stroke-dasharray: 75.4; stroke-dashoffset: 18.85; }
+@media (prefers-reduced-motion: no-preference) {
+  .fill { animation: rec 6s cubic-bezier(.65, 0, .35, 1) infinite; }
+}
+@keyframes rec {
+  0%, 8% { stroke-dashoffset: 75.4; }
+  22%, 34% { stroke-dashoffset: 37.7; }
+  48%, 60% { stroke-dashoffset: 18.85; }
+  74%, 92% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 75.4; }
+}
+.steps { display: flex; gap: 20px; flex-wrap: wrap; }
+.steps figure { margin: 0; display: grid; gap: 8px; justify-items: center; }
+.steps svg { width: 28px; }
+
+footer { border-top: 1px solid var(--rule); padding-block: 32px 48px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-block: 32px 64px; }
+  .hero-mark { max-width: 320px; }
+  .s { grid-template-columns: 1fr; gap: 28px; padding-block: 56px; }
+  .sys, .swatches, .voice { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .notes, .concept, .donts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .duo { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .words, .lockups, .sys, .swatches, .voice, .pair { grid-template-columns: 1fr; }
+  .pair { gap: 6px; }
+  .specimen > div { grid-template-columns: 1fr; gap: 10px; }
+  .motion { grid-template-columns: 1fr; padding: 24px; }
+  .construct, .wm-big, .sheet-wrap, .ui, .sizes, .icons { padding: 20px; }
+  .sheet { font-size: 9px; }
+}
+</style>
+
+<!-- shared geometry -->
+<svg class="defs" aria-hidden="true">
+  <defs>
+    <g id="s0"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="4"/></g>
+    <g id="s1"><use href="#s0"/><path d="M24 0A24 24 0 0 1 24 48Z" fill="currentColor"/></g>
+    <g id="s2"><use href="#s0"/><path d="M24 24V0A24 24 0 1 1 0 24Z" fill="currentColor"/></g>
+    <g id="s3"><circle cx="24" cy="24" r="24" fill="currentColor"/></g>
+    <g id="fav"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="6"/><path d="M24 24V0A24 24 0 1 1 0 24Z" fill="currentColor"/></g>
+    <g id="mark">
+      <use href="#s0" x="6" y="6"/><use href="#s1" x="66" y="6"/>
+      <use href="#s2" x="6" y="66"/><use href="#s3" x="66" y="66"/>
+    </g>
+    <g id="wordmark">
+      <g fill="none" stroke="currentColor" stroke-width="8">
+        <path d="M4 40V16A12 12 0 0 1 28 16V40M28 16A12 12 0 0 1 52 16V40"/>
+        <path d="M70 0V40"/>
+        <path d="M88 40V16A12 12 0 0 1 100 4H104"/>
+        <circle cx="126" cy="20" r="16"/>
+        <path d="M142 0V40"/>
+      </g>
+      <circle cx="70" cy="-11" r="5" fill="currentColor"/>
+    </g>
+    <g id="lockup">
+      <use href="#mark" transform="scale(.5)"/>
+      <use href="#wordmark" transform="translate(84 10)"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+<header class="top">
+  <svg viewBox="3 -6 227 63" role="img" aria-label="Mira"><use href="#lockup"/></svg>
+  <span class="mono">Brand kit · v1 · November 2026</span>
+</header>
+
+<section class="hero" aria-label="Mira">
+  <svg class="hero-mark" viewBox="0 0 120 120" role="img" aria-label="The Mira mark: four circles filling clockwise from empty to full"><use href="#mark"/></svg>
+  <div class="hero-copy">
+    <svg class="wm" viewBox="0 -16 146 56" role="img" aria-label="mira"><use href="#wordmark"/></svg>
+    <p class="lede">Mira is the health record a parent keeps for their child. Notes, documents, appointments, allergies and vaccines live in one place, and before each visit Mira compiles everything since the last one into a single page for the pediatrician.</p>
+    <dl class="spec">
+      <div><dt>Name</dt><dd>mira, Spanish for "look"</dd></div>
+      <div><dt>Audience</dt><dd>Parents and guardians</dd></div>
+      <div><dt>Second reader</dt><dd>The pediatrician</dd></div>
+      <div><dt>Promise</dt><dd>Everything since the last visit</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="s" id="strategy">
+  <div class="s-head"><span class="mono">01</span><h2>Strategy</h2></div>
+  <div class="s-body">
+    <p class="lede">A child's health story is written by many people over many years: parents, grandparents, daycare, specialists, the ER at 2am. Mira's job is to gather it calmly and hand it over clearly. The brand should feel like a well kept notebook, never like a hospital or a toy.</p>
+    <div class="words">
+      <div class="cap">
+        <span class="mono">Mira is</span>
+        <ul><li>Calm</li><li>Prepared</li><li>Continuous</li><li>Plain spoken</li><li>Trustworthy</li><li>Quietly warm</li><li>Exact about dates and doses</li></ul>
+      </div>
+      <div class="cap not">
+        <span class="mono">Mira is not</span>
+        <ul><li>Clinical or sterile</li><li>Cute (no crayons, bears, balloons)</li><li>Alarmist</li><li>Hospital blue</li><li>AI sparkle</li><li>Hearts, crosses, stethoscopes</li><li>Gamified</li></ul>
+      </div>
+    </div>
+    <div class="cap">
+      <span class="mono">The idea</span>
+      <h3>A record fills in over time.</h3>
+      <p>Each milestone is the same circle, filled a little more, clockwise from 12 o'clock like a clock hand moving forward. Nothing is ever erased. The mark is a picture of accumulation, which is exactly what Mira does for a family.</p>
+    </div>
+    <div class="concept">
+      <figure><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s0"/></svg><b>0</b><figcaption class="mono">Birth. An empty record.</figcaption></figure>
+      <figure><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s1"/></svg><b>½</b><figcaption class="mono">The first years of visits.</figcaption></figure>
+      <figure><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s2"/></svg><b>¾</b><figcaption class="mono">A history worth carrying.</figcaption></figure>
+      <figure><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s3"/></svg><b>1</b><figcaption class="mono">Handed over, complete.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="mark">
+  <div class="s-head"><span class="mono">02</span><h2>The mark</h2><p class="mono">Four milestones on one grid. One color, always.</p></div>
+  <div class="s-body">
+    <div class="panel construct">
+      <svg viewBox="-46 -36 212 198" role="img" aria-label="Construction grid for the mark">
+        <defs><pattern id="g10" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" class="gl"/></pattern></defs>
+        <rect x="0" y="0" width="120" height="120" fill="url(#g10)"/>
+        <rect x="0" y="0" width="120" height="120" class="frame"/>
+        <path d="M60 0V120M0 60H120" class="frame"/>
+        <path d="M30 -8V128M90 -8V128M-8 30H128M-8 90H128" class="dash"/>
+        <use href="#mark"/>
+        <path d="M30 -16H90M30 -19V-13M90 -19V-13" class="ms"/>
+        <text x="60" y="-21" text-anchor="middle" class="ms-t">60</text>
+        <path d="M54 60H66M54 57V63M66 57V63" class="ms"/>
+        <text x="60" y="54" text-anchor="middle" class="ms-t">12</text>
+        <path d="M66 135H114M66 132V138M114 132V138" class="ms"/>
+        <text x="90" y="146" text-anchor="middle" class="ms-t">Ø 48</text>
+        <text x="-11" y="31.8" text-anchor="end" class="ms-t">ring 4</text>
+        <text x="-24" y="-4" class="ms-n">0</text>
+        <text x="136" y="-4" class="ms-n">½</text>
+        <text x="-24" y="140" class="ms-n">¾</text>
+        <text x="136" y="140" class="ms-n">1</text>
+      </svg>
+    </div>
+    <dl class="spec">
+      <div><dt>Canvas</dt><dd>120 × 120 units</dd></div>
+      <div><dt>Module</dt><dd>Circle Ø 48</dd></div>
+      <div><dt>Centers</dt><dd>30 / 90 · 60 apart</dd></div>
+      <div><dt>Ring</dt><dd>4 units</dd></div>
+      <div><dt>Gap</dt><dd>12 units</dd></div>
+      <div><dt>Rule</dt><dd>Fill clockwise from 12 o'clock</dd></div>
+      <div><dt>Reading order</dt><dd>Left to right, top to bottom</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="s" id="wordmark">
+  <div class="s-head"><span class="mono">03</span><h2>Wordmark</h2><p class="mono">Drawn, not typed. Built from the same circle.</p></div>
+  <div class="s-body">
+    <div class="panel wm-big">
+      <svg viewBox="-14 -34 174 96" role="img" aria-label="Wordmark construction">
+        <path d="M-8 0H152M-8 40H152" class="ms" stroke-dasharray="2 2"/>
+        <text x="-10" y="-2" class="ms-t" font-size="3.6" style="font-size:3.6px">x-height 40</text>
+        <text x="-10" y="48" class="ms-t" style="font-size:3.6px">baseline</text>
+        <use href="#wordmark"/>
+        <path d="M70 -22V-18" class="ms"/><text x="70" y="-25" text-anchor="middle" class="ms-t" style="font-size:3.6px">dot Ø 10</text>
+        <path d="M100 -8V-4" class="ms"/><text x="100" y="-11" text-anchor="middle" class="ms-t" style="font-size:3.6px">¼ arc</text>
+        <path d="M126 46V50" class="ms"/><text x="126" y="56" text-anchor="middle" class="ms-t" style="font-size:3.6px">ring</text>
+        <path d="M0 52H8" class="ms"/><text x="4" y="58" text-anchor="middle" class="ms-t" style="font-size:3.6px">stroke 8</text>
+      </svg>
+    </div>
+    <div class="notes">
+      <div><span class="mono">m</span><p>Two arches of radius 12 on a shared stem.</p></div>
+      <div><span class="mono">i</span><p>The dot is a full circle, the last milestone.</p></div>
+      <div><span class="mono">r</span><p>The shoulder is a quarter arc, read clockwise.</p></div>
+      <div><span class="mono">a</span><p>A single story bowl: the empty ring, plus a stem.</p></div>
+    </div>
+    <p>Always lowercase. Never set the name in a typeface in place of the drawn wordmark. In running text, write it as Mira.</p>
+  </div>
+</section>
+
+<section class="s" id="lockups">
+  <div class="s-head"><span class="mono">04</span><h2>Lockups and sizes</h2></div>
+  <div class="s-body">
+    <div class="lockups">
+      <div class="tile light"><svg viewBox="3 -6 227 63" style="width:min(100%,300px)" role="img" aria-label="Mira horizontal lockup"><use href="#lockup"/></svg><span class="mono">Horizontal · primary</span></div>
+      <div class="tile dark"><svg viewBox="3 -6 227 63" style="width:min(100%,300px)" role="img" aria-label="Mira horizontal lockup, reversed"><use href="#lockup"/></svg><span class="mono">Reversed</span></div>
+      <div class="tile light"><svg viewBox="-20 -6 160 210" style="width:min(100%,130px)" role="img" aria-label="Mira stacked lockup"><use href="#mark"/><use href="#wordmark" transform="translate(-13 158)"/></svg><span class="mono">Stacked</span></div>
+      <div class="tile wash clear">
+        <svg viewBox="-30 -36 287 123" role="img" aria-label="Clear space around the lockup">
+          <rect x="-27" y="-33" width="281" height="117" fill="none" class="ms" stroke-dasharray="3 3"/>
+          <rect x="3" y="-6" width="227" height="63" fill="none" class="frame"/>
+          <use href="#lockup"/>
+          <path d="M-27 24H3" class="ms"/><text x="-12" y="21" text-anchor="middle" class="ms-t" style="font-size:6px">30</text>
+        </svg>
+        <span class="mono">Clear space = half the mark</span>
+      </div>
+    </div>
+    <div class="cap">
+      <span class="mono">Small sizes</span>
+      <p>Below 32 pixels the four circles blur together. At favicon and tab sizes, Mira is a single ¾ circle with a heavier ring of 6 units: a record well underway, still being added to.</p>
+    </div>
+    <div class="panel sizes">
+      <figure><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><use href="#fav"/></svg><figcaption class="mono">16</figcaption></figure>
+      <figure><svg viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><use href="#fav"/></svg><figcaption class="mono">24</figcaption></figure>
+      <figure><svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><use href="#fav"/></svg><figcaption class="mono">32</figcaption></figure>
+      <figure><svg viewBox="0 0 120 120" width="48" height="48" aria-hidden="true"><use href="#mark"/></svg><figcaption class="mono">48 · full mark</figcaption></figure>
+      <figure><svg viewBox="0 0 120 120" width="72" height="72" aria-hidden="true"><use href="#mark"/></svg><figcaption class="mono">72</figcaption></figure>
+      <figure><svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true"><use href="#mark"/></svg><figcaption class="mono">112</figcaption></figure>
+    </div>
+    <div class="cap"><span class="mono">Please don't</span></div>
+    <div class="donts">
+      <figure><div class="tile light"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#s0" x="6" y="6" color="#3B7DD8"/><use href="#s1" x="66" y="6" color="#E2A52B"/><use href="#s2" x="6" y="66" color="#39A26A"/><use href="#s3" x="66" y="66" color="#D8473B"/></svg></div><figcaption class="mono"><span class="x">×</span> Color the milestones</figcaption></figure>
+      <figure><div class="tile light"><svg viewBox="0 0 120 120" aria-hidden="true" style="transform:rotate(90deg)"><use href="#mark"/></svg></div><figcaption class="mono"><span class="x">×</span> Rotate the mark</figcaption></figure>
+      <figure><div class="tile light"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#s0" x="6" y="6"/><use href="#s2" x="66" y="6"/><use href="#s1" x="6" y="66"/><use href="#s3" x="66" y="66"/></svg></div><figcaption class="mono"><span class="x">×</span> Reorder the sequence</figcaption></figure>
+      <figure><div class="tile light"><svg viewBox="0 0 120 120" aria-hidden="true" style="filter:drop-shadow(3px 4px 3px rgba(0,0,0,.35))"><use href="#mark"/></svg></div><figcaption class="mono"><span class="x">×</span> Add effects</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="color">
+  <div class="s-head"><span class="mono">05</span><h2>Color</h2><p class="mono">Ink and paper carry the brand. Signal marks what changed.</p></div>
+  <div class="s-body">
+    <div class="swatches">
+      <div class="sw" style="background:#151515;color:#FFFFFF"><div><b>Ink</b><span>#151515 · rgb 21 21 21</span></div><p>The mark, the wordmark, text.</p></div>
+      <div class="sw" style="background:#FFFFFF;color:#151515;box-shadow:inset 0 0 0 1px var(--rule)"><div><b>Paper</b><span>#FFFFFF</span></div><p>Grounds, and the printed visit brief.</p></div>
+      <div class="sw" style="background:#EE5D1B;color:#151515"><div><b>Signal</b><span>#EE5D1B · rgb 238 93 27</span></div><p>Only for what changed since the last visit. Never body text.</p></div>
+      <div class="sw" style="background:#F5F5F2;color:#151515"><div><b>Wash</b><span>#F5F5F2</span></div><p>Panels and quiet surfaces.</p></div>
+      <div class="sw" style="background:#E3E2DD;color:#151515"><div><b>Rule</b><span>#E3E2DD</span></div><p>Hairlines and grids.</p></div>
+      <div class="sw" style="background:#6B6A65;color:#FFFFFF"><div><b>Graphite</b><span>#6B6A65</span></div><p>Labels, dates, metadata.</p></div>
+    </div>
+    <div class="cap">
+      <span class="mono">Proportion on a typical screen</span>
+      <div class="ratio" role="img" aria-label="About 70 percent paper, 18 percent ink, 10 percent wash and rule, 2 percent signal">
+        <span style="flex:70;background:#FFFFFF"></span><span style="flex:18;background:#151515"></span><span style="flex:10;background:#E3E2DD"></span><span style="flex:2;background:#EE5D1B"></span>
+      </div>
+      <p class="mono">Paper 70 · Ink 18 · Wash and Rule 10 · Signal 2</p>
+    </div>
+    <p>In dark mode Ink and Paper swap places and Signal lifts slightly to #F47A3C so it holds the same contrast. Health states (an allergy, an overdue vaccine) use words and position first, color second.</p>
+  </div>
+</section>
+
+<section class="s" id="type">
+  <div class="s-head"><span class="mono">06</span><h2>Typography</h2><p class="mono">A serif to speak, a sans to explain, a mono for the facts.</p></div>
+  <div class="s-body">
+    <div class="specimen">
+      <div><span class="mono">Display<br>Newsreader 400</span><span class="t-display">Since the last visit</span></div>
+      <div><span class="mono">Text<br>Geist 400 / 500</span><span class="t-text">Layla had an ear infection on September 30 and finished a 10 day course of amoxicillin. She had hives after eating a peanut snack at daycare on October 18.</span></div>
+      <div><span class="mono">Data<br>Geist Mono 400</span><span class="t-mono">Weight 16.8 kg · 52nd pct<br>Temp 101.4 °F · 11:40 pm<br>Cetirizine 2.5 mg · as needed</span></div>
+    </div>
+    <div class="scale">
+      <div><span class="mono">Display 56</span><span style="font-family:var(--f-display);font-size:clamp(34px,4.6vw,56px);line-height:1">Ready for Thursday</span></div>
+      <div><span class="mono">Title 28</span><span style="font-family:var(--f-display);font-size:28px;line-height:1.1">Allergies</span></div>
+      <div><span class="mono">Body 17</span><span style="font-size:17px">Peanut, suspected. Reaction was hives only.</span></div>
+      <div><span class="mono">Label 13</span><span style="font-family:var(--f-mono);font-size:13px;color:var(--muted)">Updated Oct 18 by Sara</span></div>
+    </div>
+    <p>Dates, doses, weights and temperatures are always set in Geist Mono with tabular numerals, so a doctor can scan a column of them.</p>
+  </div>
+</section>
+
+<section class="s" id="voice">
+  <div class="s-head"><span class="mono">07</span><h2>Voice</h2></div>
+  <div class="s-body">
+    <div class="voice">
+      <div><h3>Plain</h3><p>Write the way a careful parent talks to a nurse. Short sentences, real words.</p></div>
+      <div><h3>Calm</h3><p>Parents open Mira when something is wrong. No exclamation marks, no alarms, no cheerleading.</p></div>
+      <div><h3>Specific</h3><p>Numbers, dates and doses beat adjectives. "101.4 °F since Tuesday night" beats "a high fever".</p></div>
+    </div>
+    <div class="pairs">
+      <div class="pair"><p>3 things changed since the last visit.</p><p class="no">Your health journey is evolving!</p></div>
+      <div class="pair"><p>The flu shot is due this season.</p><p class="no">URGENT: vaccine overdue!!</p></div>
+      <div class="pair"><p>Fever 101.4 °F. Gave ibuprofen at 9:10 pm.</p><p class="no">Uh oh, someone's under the weather.</p></div>
+      <div class="pair"><p>Visit brief ready. 1 page.</p><p class="no">Your AI-powered summary is here ✨</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="system">
+  <div class="s-head"><span class="mono">08</span><h2>In use</h2><p class="mono">The mark becomes a status, a texture and a page.</p></div>
+  <div class="s-body">
+
+    <div class="duo">
+      <div class="panel sheet-wrap">
+        <article class="sheet" aria-label="Example visit brief">
+          <div class="hd"><svg viewBox="3 -6 227 63" aria-hidden="true"><use href="#lockup"/></svg><span>Visit brief · Nov 4, 2026</span></div>
+          <div class="grp">
+            <span class="k">Patient</span>
+            <h4>Layla Rahman, 4 y 2 m</h4>
+            <span class="k">Well visit · Last seen Aug 12, 2026 · Prepared by Sara (mother)</span>
+          </div>
+          <div class="grp">
+            <span class="k">Since the last visit</span>
+            <div class="row"><i></i><span>Ear infection, left. Amoxicillin 10 days, completed.</span><em>Sep 30</em></div>
+            <div class="row"><i></i><span>Hives after peanut snack at daycare. No breathing trouble.</span><em>Oct 18</em></div>
+            <div class="row"><i class="o"></i><span>Snoring most nights, per parent.</span><em>Ongoing</em></div>
+          </div>
+          <div class="cols">
+            <div class="grp">
+              <span class="k">Medications</span>
+              <div class="row"><i class="o"></i><span>Cetirizine 2.5 mg</span><em>PRN</em></div>
+              <span class="k" style="margin-top:6px">Allergies</span>
+              <div class="row"><i></i><span>Peanut, suspected</span><em>New</em></div>
+            </div>
+            <div class="grp">
+              <span class="k">Due at 4 years</span>
+              <div class="row"><i class="o"></i><span>DTaP #5 · IPV #4</span><em></em></div>
+              <div class="row"><i class="o"></i><span>MMR #2 · Varicella #2</span><em></em></div>
+              <div class="row"><i class="o"></i><span>Influenza 2026-27</span><em></em></div>
+            </div>
+          </div>
+          <div class="grp">
+            <span class="k">Questions from the family</span>
+            <div class="row"><i class="o"></i><span>Should we see an allergist about the peanut reaction?</span><em>1</em></div>
+            <div class="row"><i class="o"></i><span>Is the nightly snoring worth checking?</span><em>2</em></div>
+          </div>
+          <div class="ex"><span>● New since last visit</span><span>Example patient</span></div>
+        </article>
+      </div>
+
+      <div class="panel ui">
+        <span class="mono">In the app · readiness</span>
+        <div class="card">
+          <div class="card-top">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s2"/></svg>
+            <div><b>Thursday, well visit</b><span>3 of 4 sections reviewed</span></div>
+          </div>
+          <div class="checks">
+            <div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s3"/></svg>Since the last visit<span class="new">2 new</span></div>
+            <div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s3"/></svg>Medications<span>1</span></div>
+            <div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s3"/></svg>Vaccines due<span>5</span></div>
+            <div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s0"/></svg>Your questions<span>Add</span></div>
+          </div>
+          <button class="btn" type="button" id="compile">Compile visit brief</button>
+        </div>
+        <p class="mono">The milestone circle doubles as a progress state. It always fills clockwise and never animates backwards.</p>
+      </div>
+    </div>
+
+    <div class="sys">
+      <div class="poster ink">
+        <svg class="crop" viewBox="0 0 48 48" style="width:150%;right:-62%;bottom:-48%;color:#FFFFFF" aria-hidden="true"><use href="#s2"/></svg>
+        <h3>Everything since the last visit.</h3>
+        <div class="foot"><svg viewBox="0 -16 146 56" aria-hidden="true"><use href="#wordmark"/></svg><span>Poster · crop</span></div>
+      </div>
+      <div class="poster paper">
+        <svg class="crop" viewBox="0 0 120 120" style="width:118%;left:-9%;top:30%;color:#151515" aria-hidden="true"><use href="#mark"/></svg>
+        <h3>One page for the pediatrician.</h3>
+        <div class="foot" style="background:#FFFFFF;margin:0 -24px -24px;padding:16px 24px"><svg viewBox="0 -16 146 56" aria-hidden="true"><use href="#wordmark"/></svg><span>Poster · grid</span></div>
+      </div>
+      <div class="poster wash" style="padding:0">
+        <div class="pattern" style="height:100%;border-radius:0" id="pattern"></div>
+      </div>
+    </div>
+    <p class="mono">The record texture: every circle is a random milestone, read as one child's history. Use it for covers, onboarding and packaging. Never behind text.</p>
+
+    <div class="panel icons">
+      <figure><div class="appicon" style="width:120px;height:120px"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg></div><figcaption class="mono">App icon · 120</figcaption></figure>
+      <figure><div class="appicon" style="width:76px;height:76px"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg></div><figcaption class="mono">76</figcaption></figure>
+      <figure><div class="appicon" style="width:44px;height:44px"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg></div><figcaption class="mono">44</figcaption></figure>
+      <figure><div class="tab"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#fav"/></svg>Mira · Layla</div><figcaption class="mono">Browser tab · ¾ favicon</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="motion">
+  <div class="s-head"><span class="mono">09</span><h2>Motion</h2></div>
+  <div class="s-body">
+    <div class="panel motion">
+      <svg viewBox="0 0 48 48" role="img" aria-label="A circle filling clockwise from 12 o'clock in four steps">
+        <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="4"/>
+        <circle class="fill" cx="24" cy="24" r="12" fill="none" stroke="currentColor" stroke-width="24" transform="rotate(-90 24 24)"/>
+      </svg>
+      <div class="cap">
+        <h3>One movement: fill clockwise.</h3>
+        <p>When something is added, saved or compiled, the circle advances clockwise from 12 o'clock and settles. It eases in and out over 600 ms and holds still between steps. With reduced motion turned on, it simply shows the final state.</p>
+        <div class="steps" aria-hidden="true">
+          <figure><svg viewBox="0 0 48 48"><use href="#s0"/></svg><span class="mono">Empty</span></figure>
+          <figure><svg viewBox="0 0 48 48"><use href="#s1"/></svg><span class="mono">Saving</span></figure>
+          <figure><svg viewBox="0 0 48 48"><use href="#s2"/></svg><span class="mono">Compiling</span></figure>
+          <figure><svg viewBox="0 0 48 48"><use href="#s3"/></svg><span class="mono">Ready</span></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg viewBox="3 -6 227 63" style="height:22px;width:auto;color:var(--fg)" aria-hidden="true"><use href="#lockup"/></svg>
+  <span class="mono">Mira brand kit v1 · November 2026</span>
+</footer>
+
+</div>
+
+<script>
+// record texture: seeded so it renders the same for everyone
+(function () {
+  var el = document.getElementById('pattern');
+  if (!el) return;
+  var seed = 7, cols = 6, rows = 8, step = 60;
+  function rand() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  var s = '<svg viewBox="0 0 ' + (cols * step) + ' ' + (rows * step) + '" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%" aria-hidden="true">';
+  for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+    var v = rand(), id = v < .3 ? 's0' : v < .55 ? 's1' : v < .8 ? 's2' : 's3';
+    s += '<use href="#' + id + '" x="' + (c * step + 6) + '" y="' + (r * step + 6) + '"/>';
+  }
+  el.innerHTML = s + '</svg>';
+})();
+// demo button: steps the readiness circle forward once
+(function () {
+  var b = document.getElementById('compile');
+  if (!b) return;
+  b.addEventListener('click', function () {
+    var u = document.querySelector('.card-top use');
+    u.setAttribute('href', '#s3');
+    document.querySelector('.card-top span').textContent = 'Brief compiled · 1 page';
+    b.textContent = 'Compiled';
+  });
+})();
+</script>
