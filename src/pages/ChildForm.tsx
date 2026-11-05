@@ -21,7 +21,7 @@ export function ChildFields({ initial, submitLabel, onSubmit }: {
   const submit = (e: FormEvent) => {
     e.preventDefault();
     if (!v.firstName.trim()) return setError('Add a first name.');
-    if (!v.dob) return setError('Add a date of birth so Mira can show ages and milestones.');
+    if (!v.dob) return setError('Add a date of birth so Miraa can show ages and milestones.');
     onSubmit({ firstName: v.firstName.trim(), lastName: v.lastName.trim(), dob: v.dob, pediatrician: v.pediatrician.trim(), clinic: v.clinic.trim() });
   };
 
@@ -55,7 +55,7 @@ export function Welcome() {
   const next = (e: FormEvent) => {
     e.preventDefault();
     if (step === 0 && !name) return setError('What should we call them?');
-    if (step === 1 && !v.dob) return setError(`Add ${name}'s birthday so Mira can track ages and milestones.`);
+    if (step === 1 && !v.dob) return setError(`Add ${name}'s birthday so Miraa can track ages and milestones.`);
     if (step === 2) {
       setStep(3);
       // Let the circle complete before the app takes over.
@@ -67,7 +67,7 @@ export function Welcome() {
 
   const questions = [
     { title: "Let's start with your kid. What's their name?", sub: 'Just for you. Nothing leaves this device.' },
-    { title: `Nice to meet ${name}. When were they born?`, sub: 'Mira uses this for ages, growth and well-visit timing.' },
+    { title: `Nice to meet ${name}. When were they born?`, sub: 'Miraa uses this for ages, growth and well-visit timing.' },
     { title: `Who looks after ${name}?`, sub: 'Optional. It goes at the top of every visit brief.' },
     { title: `${name}'s record is ready.`, sub: 'Opening it now…' },
   ];
@@ -75,7 +75,7 @@ export function Welcome() {
 
   return (
     <div className="welcome">
-      <Link to="/" aria-label="Mira home page" style={{ alignSelf: 'flex-start' }}><Lockup style={{ height: 24, width: 'auto', color: 'var(--pine)' }} /></Link>
+      <Link to="/" aria-label="Miraa home page" style={{ alignSelf: 'flex-start' }}><Lockup style={{ height: 24, width: 'auto', color: 'var(--pine)' }} /></Link>
       {restoring ? <RestoreBackup onCancel={() => setRestoring(false)} /> : (
         <form onSubmit={next} noValidate className="ask" key={step}>
           <div className="ask-progress" aria-label={`Step ${Math.min(step + 1, 3)} of 3`}>

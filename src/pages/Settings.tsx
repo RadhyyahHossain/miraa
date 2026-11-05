@@ -41,7 +41,7 @@ export function Settings() {
           <span className="muted">{backupAgeLabel(state.lastBackupAt)}{lastBackup ? ` · ${lastBackup}` : ''}</span>
         </div>
         <p className="muted" style={{ margin: 0, maxWidth: '60ch' }}>
-          Mira has no account because there is nothing for us to store. Your records live on this device. A backup is an encrypted file you keep,
+          Miraa has no account because there is nothing for us to store. Your records live on this device. A backup is an encrypted file you keep,
           like a folder of your child's papers. Save it to iCloud Drive, Google Drive or email, and restore it on any device.
         </p>
         <CreateBackup />
@@ -53,18 +53,18 @@ export function Settings() {
       <section id="install" className="settings-sec" aria-labelledby="install-h">
         <h2 className="h2" id="install-h">Install on this device</h2>
         {install.installed ? (
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Check size={18} color="var(--pine)" aria-hidden />Mira is installed and opens like an app.</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Check size={18} color="var(--pine)" aria-hidden />Miraa is installed and opens like an app.</span>
         ) : (
           <>
             <p className="muted" style={{ margin: 0, maxWidth: '60ch' }}>
-              Add Mira to your home screen so it opens like an app and works offline. On iPhone this also stops Safari from clearing
+              Add Miraa to your home screen so it opens like an app and works offline. On iPhone this also stops Safari from clearing
               the records after a few weeks without a visit.
             </p>
             {install.canPrompt ? (
-              <div><button className="btn secondary" type="button" onClick={install.prompt}><Smartphone aria-hidden />Install Mira</button></div>
+              <div><button className="btn secondary" type="button" onClick={install.prompt}><Smartphone aria-hidden />Install Miraa</button></div>
             ) : install.ios ? (
               <ol className="install-steps">
-                <li>Open Mira in Safari.</li>
+                <li>Open Miraa in Safari.</li>
                 <li>Tap <Share size={15} aria-label="Share" style={{ verticalAlign: '-2px' }} /> Share.</li>
                 <li>Choose <b style={{ fontWeight: 500 }}>Add to Home Screen</b>.</li>
               </ol>

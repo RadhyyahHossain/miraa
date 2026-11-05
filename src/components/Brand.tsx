@@ -19,6 +19,8 @@ const WordShapes = () => (
       <path d="M88 40V16A12 12 0 0 1 100 4H104" />
       <circle cx="126" cy="20" r="16" />
       <path d="M142 0V40" />
+      <circle cx="174" cy="20" r="16" />
+      <path d="M190 0V40" />
     </g>
     <circle cx="70" cy="-11" r="5" fill="currentColor" />
   </>
@@ -26,14 +28,14 @@ const WordShapes = () => (
 
 type Props = { className?: string; style?: CSSProperties; title?: string };
 
-export const Mark = ({ className, style, title = 'Mira' }: Props) => (
+export const Mark = ({ className, style, title = 'Miraa' }: Props) => (
   <svg viewBox="0 0 120 120" className={className} style={style} role="img" aria-label={title}>
     <MarkShapes />
   </svg>
 );
 
-export const Lockup = ({ className, style, title = 'Mira' }: Props) => (
-  <svg viewBox="3 -6 227 63" className={className} style={style} role="img" aria-label={title}>
+export const Lockup = ({ className, style, title = 'Miraa' }: Props) => (
+  <svg viewBox="3 -6 277 63" className={className} style={style} role="img" aria-label={title}>
     <g transform="scale(.5)">
       <MarkShapes />
     </g>

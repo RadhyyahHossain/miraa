@@ -1,4 +1,4 @@
-// Encrypted backup files (.mira). Everything is encrypted on the device with a passphrase:
+// Encrypted backup files (.miraa; older .mira files still restore). Everything is encrypted on the device with a passphrase:
 // PBKDF2-SHA256 derives an AES-GCM key, so the file is unreadable without the passphrase.
 import { isoDay } from './dates';
 import { normalize } from './store';
@@ -56,7 +56,7 @@ export async function createBackup(state: State, passphrase: string): Promise<Fi
     cipher: { name: 'AES-GCM', iv: toB64(iv) },
     data: toB64(cipher),
   };
-  return new File([JSON.stringify(file)], `mira-backup-${isoDay(new Date())}.mira`, { type: 'application/octet-stream' });
+  return new File([JSON.stringify(file)], `miraa-backup-${isoDay(new Date())}.miraa`, { type: 'application/octet-stream' });
 }
 
 export async function readBackup(file: File, passphrase: string): Promise<{ state: State; createdAt: string }> {
@@ -81,7 +81,7 @@ export async function readBackup(file: File, passphrase: string): Promise<{ stat
   return { state, createdAt: parsed.createdAt };
 }
 
-/** Peek at a file without decrypting it: is it a Mira backup, and when was it made? */
+/** Peek at a file without decrypting it: is it a Miraa backup, and when was it made? */
 export async function inspectBackup(file: File): Promise<{ createdAt: string } | null> {
   try {
     const parsed = JSON.parse(await file.text()) as BackupFile;
@@ -98,7 +98,7 @@ export async function inspectBackup(file: File): Promise<{ createdAt: string } |
 export async function saveBackupFile(file: File): Promise<'shared' | 'downloaded' | 'cancelled'> {
   if (navigator.canShare?.({ files: [file] })) {
     try {
-      await navigator.share({ files: [file], title: 'Mira backup' });
+      await navigator.share({ files: [file], title: 'Miraa backup' });
       return 'shared';
     } catch (e) {
       if ((e as DOMException).name === 'AbortError') return 'cancelled';

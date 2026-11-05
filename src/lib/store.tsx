@@ -43,7 +43,7 @@ async function load(): Promise<State> {
   } catch {
     // Ignore unreadable legacy data.
   }
-  // First visit: show a filled-in example family so parents see what Mira looks like over time.
+  // First visit: show a filled-in example family so parents see what Miraa looks like over time.
   return sampleState();
 }
 

@@ -74,7 +74,7 @@ export function Timeline() {
         {groups.length === 0 && (
           <div className="empty">
             <span className="serif">{rows.length ? 'No matching entries' : 'Nothing logged yet'}</span>
-            <span className="muted">{rows.length ? 'Try another filter or search.' : 'Add symptoms, illnesses, medicines and notes as they happen. Mira gathers them into the next visit brief.'}</span>
+            <span className="muted">{rows.length ? 'Try another filter or search.' : 'Add symptoms, illnesses, medicines and notes as they happen. Miraa gathers them into the next visit brief.'}</span>
             {!rows.length && <Link className="btn secondary" to="/app/timeline/new" style={{ marginTop: 6 }}><Plus aria-hidden />New entry</Link>}
           </div>
         )}

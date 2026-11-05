@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Mira',
-        short_name: 'Mira',
+        name: 'Miraa',
+        short_name: 'Miraa',
         description: "Your child's health record, and one page for every pediatric visit.",
         start_url: '/app',
         scope: '/',

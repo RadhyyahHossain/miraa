@@ -144,7 +144,7 @@ export function LogComp() {
 }
 
 /* ---------------------------------------- */
-/* Step 2: Mira keeps the record             */
+/* Step 2: Miraa keeps the record             */
 /* ---------------------------------------- */
 export function RecordComp() {
   const f = useCurrentFrame();

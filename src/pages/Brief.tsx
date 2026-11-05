@@ -21,7 +21,7 @@ export function BriefIndex() {
       <header><div className="eyebrow">{child.firstName} {child.lastName}</div><h1 className="display">Visit brief</h1></header>
       <div className="empty">
         <span className="serif">Add a visit first</span>
-        <span className="muted">A brief is made for a specific visit. Mira gathers everything logged since the last one into a single page for the doctor.</span>
+        <span className="muted">A brief is made for a specific visit. Miraa gathers everything logged since the last one into a single page for the doctor.</span>
         <Link className="btn secondary" to="/app/appointments/new" style={{ marginTop: 6 }}><Plus aria-hidden />Add a visit</Link>
       </div>
     </div>

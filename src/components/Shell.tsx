@@ -19,7 +19,7 @@ function ExampleBanner() {
   const names = state.children.map((c) => c.firstName).join(' and ');
   return (
     <div className="example-banner" role="status">
-      <span><strong>This is an example family.</strong> <span className="muted">{names} show what Mira looks like after a few months of use. Look around, then start your own.</span></span>
+      <span><strong>This is an example family.</strong> <span className="muted">{names} show what Miraa looks like after a few months of use. Look around, then start your own.</span></span>
       <button type="button" className="btn primary" onClick={() => { replaceAll(emptyState()); navigate('/app'); }}>Start my own record<ArrowRight aria-hidden /></button>
     </div>
   );
@@ -32,7 +32,7 @@ export function Shell() {
   return (
     <div className="shell">
       <aside className="side">
-        <Link to="/" className="logo-link" aria-label="Mira home page"><Lockup className="logo" title="Mira" /></Link>
+        <Link to="/" className="logo-link" aria-label="Miraa home page"><Lockup className="logo" title="Miraa" /></Link>
         <nav className="nav" aria-label="Family">
           <NavLink to="/app" end><House size={18} strokeWidth={1.75} aria-hidden />Home</NavLink>
         </nav>
@@ -52,8 +52,8 @@ export function Shell() {
       </aside>
 
       <header className="mhead">
-        {onHome ? <Link to="/" aria-label="Mira home page"><Lockup style={{ height: 19, width: 'auto', color: 'var(--pine)' }} /></Link> : <ChildSwitcher compact />}
-        {!onHome && <Link to="/" aria-label="Mira home page" style={{ display: 'flex' }}><Mark style={{ width: 24, height: 24, color: 'var(--pine)' }} /></Link>}
+        {onHome ? <Link to="/" aria-label="Miraa home page"><Lockup style={{ height: 19, width: 'auto', color: 'var(--pine)' }} /></Link> : <ChildSwitcher compact />}
+        {!onHome && <Link to="/" aria-label="Miraa home page" style={{ display: 'flex' }}><Mark style={{ width: 24, height: 24, color: 'var(--pine)' }} /></Link>}
       </header>
 
       <main className="main">

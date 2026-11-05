@@ -36,7 +36,7 @@
 .lp-n { font-size: 13px; font-weight: 500; color: var(--faint); }
 
 
-/* Bottom call to action: a flat night card with the Mira mark large and cropped off the right edge. */
+/* Bottom call to action: a flat night card with the Miraa mark large and cropped off the right edge. */
 .lp-banner {
   position: relative; overflow: hidden; border-radius: 32px; min-height: clamp(380px, 34vw, 460px); display: flex; align-items: center;
   color: #f6efe9;

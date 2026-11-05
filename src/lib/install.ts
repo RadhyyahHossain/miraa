@@ -1,4 +1,4 @@
-// Tracks whether Mira can be installed to the home screen, and whether it already is.
+// Tracks whether Miraa can be installed to the home screen, and whether it already is.
 import { useEffect, useState } from 'react';
 
 interface InstallPromptEvent extends Event {

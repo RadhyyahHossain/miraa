@@ -34,7 +34,7 @@ export function FamilyHome() {
         <h2 className="h2" id="coming-up" style={{ marginBottom: 14 }}>Coming up</h2>
         {upcoming.length === 0 ? (
           <div className="empty">
-            <span className="muted">No visits scheduled. Add the next one and Mira will start preparing a brief for it.</span>
+            <span className="muted">No visits scheduled. Add the next one and Miraa will start preparing a brief for it.</span>
             <Link className="btn secondary" to="/app/appointments/new" style={{ marginTop: 6 }}><Plus aria-hidden />Add a visit</Link>
           </div>
         ) : (

@@ -21,7 +21,7 @@ export function Appointments() {
       <section aria-label="Upcoming">
         <h2 className="h2" style={{ marginBottom: 18 }}>Upcoming</h2>
         {d.upcoming.length === 0 ? (
-          <div className="empty"><span className="muted">No upcoming visits. Add one and Mira will gather everything since the last visit into a brief.</span></div>
+          <div className="empty"><span className="muted">No upcoming visits. Add one and Miraa will gather everything since the last visit into a brief.</span></div>
         ) : (
           <div className="appts">
             {d.upcoming.map((a) => {

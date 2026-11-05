@@ -7,7 +7,7 @@ import './landing.css';
 
 const STEPS = [
   { n: '01', title: 'Log it when it happens', body: 'A symptom, a medicine, a reaction, a growth check. A few seconds from your phone, with the date and the details.', comp: LogComp, label: 'Animation: logging a fever as a new entry' },
-  { n: '02', title: 'Mira keeps the record', body: "A timeline for each child, plus allergies, medicines and vaccines due. Mira knows when the last visit was and what changed since.", comp: RecordComp, label: 'Animation: entries building up on a timeline since the last visit' },
+  { n: '02', title: 'Miraa keeps the record', body: "A timeline for each child, plus allergies, medicines and vaccines due. Miraa knows when the last visit was and what changed since.", comp: RecordComp, label: 'Animation: entries building up on a timeline since the last visit' },
   { n: '03', title: 'Hand over one page', body: 'Before the appointment, choose what to include, add your questions, and print it or show it on your phone.', comp: HandoverComp, label: 'Animation: the visit brief completing and saving as a PDF' },
 ];
 
@@ -15,14 +15,14 @@ export default function Landing() {
   return (
     <div className="lp">
       <header className="lp-wrap lp-nav">
-        <Link to="/" aria-label="Mira home page"><Lockup style={{ height: 24, width: 'auto', color: 'var(--pine)' }} /></Link>
-        <Link className="btn secondary" to="/app">Open Mira</Link>
+        <Link to="/" aria-label="Miraa home page"><Lockup style={{ height: 24, width: 'auto', color: 'var(--pine)' }} /></Link>
+        <Link className="btn secondary" to="/app">Open Miraa</Link>
       </header>
 
       <section className="lp-wrap lp-hero">
         <SoftHeadline className="lp-h1" text="Walk into every checkup with one page." />
         <p className="muted lp-lede fade-in" style={{ animationDelay: '380ms' }}>
-          Mira is the health record you keep for your kids. Log <a href="#how">fevers, medicines and reactions</a> as they happen, and Mira turns everything since the last visit into <a href="#how">one page for your pediatrician</a>.
+          Miraa is the health record you keep for your kids. Log <a href="#how">fevers, medicines and reactions</a> as they happen, and Miraa turns everything since the last visit into <a href="#how">one page for your pediatrician</a>.
         </p>
         <div className="lp-cta fade-in" style={{ animationDelay: '500ms' }}>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -78,7 +78,7 @@ export default function Landing() {
         </div>
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
           <a href="#how">How it works</a>
-          <Link to="/app">Open Mira</Link>
+          <Link to="/app">Open Miraa</Link>
         </div>
       </footer>
     </div>

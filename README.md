@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset=".github/assets/logo-dark.svg">
-    <img src=".github/assets/logo-light.svg" alt="Mira" height="56">
+    <img src=".github/assets/logo-light.svg" alt="Miraa" height="56">
   </picture>
 </p>
 
@@ -17,7 +17,7 @@
 
 ## What it does
 
-Between checkups a lot happens: a fever at 2am, an urgent care visit, a new antibiotic, a rash after a daycare snack. Mira keeps it all in one place and, before each appointment, turns everything since the last visit into a single page for the pediatrician.
+Between checkups a lot happens: a fever at 2am, an urgent care visit, a new antibiotic, a rash after a daycare snack. Miraa keeps it all in one place and, before each appointment, turns everything since the last visit into a single page for the pediatrician.
 
 - **Timeline.** Log symptoms, illnesses, reactions, medications, measurements and notes in a few seconds, per child.
 - **Visits.** Upcoming and past appointments, with a brief that fills in as the next visit gets closer.
@@ -67,4 +67,4 @@ brand/         Logo, mark and brand kit
 
 ## Disclaimer
 
-Mira records what your family notices and hands it to your doctor. It is not medical advice and never interprets symptoms or suggests treatment.
+Miraa records what your family notices and hands it to your doctor. It is not medical advice and never interprets symptoms or suggests treatment.

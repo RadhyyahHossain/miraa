@@ -5,7 +5,7 @@ import { useStore } from '../lib/store';
 import { BACKUP_STALE_DAYS, BackupError, backupAgeDays, backupAgeLabel, createBackup, inspectBackup, readBackup, saveBackupFile } from '../lib/backup';
 
 const ERRORS: Record<BackupError['reason'], string> = {
-  'not-a-backup': 'That file is not a Mira backup. Choose a file that ends in .mira.',
+  'not-a-backup': 'That file is not a Miraa backup. Choose a file that ends in .miraa.',
   'wrong-passphrase': 'That passphrase does not open this backup. Check for typos and try again.',
   unsupported: 'This browser cannot encrypt files. Try a current version of Safari, Chrome or Firefox.',
 };
@@ -59,7 +59,7 @@ export function CreateBackup({ onDone }: { onDone?: () => void }) {
         <label className="field"><span>Passphrase</span><input id="backup-pass" className="input" type="password" autoComplete="new-password" value={pass} onChange={(e) => { setPass(e.target.value); setError(''); }} /></label>
         <label className="field"><span>Type it again</span><input id="backup-pass-2" className="input" type="password" autoComplete="new-password" value={confirm} onChange={(e) => { setConfirm(e.target.value); setError(''); }} /></label>
       </div>
-      <span className="hint">The file is encrypted with this passphrase. Mira cannot recover it if you forget it, so write it down with your other important papers.</span>
+      <span className="hint">The file is encrypted with this passphrase. Miraa cannot recover it if you forget it, so write it down with your other important papers.</span>
       {error && <span className="hint" role="alert" style={{ color: '#B42318' }}>{error}</span>}
       <div><button className="btn primary" type="submit" disabled={busy}>{busy ? 'Encrypting…' : 'Save backup file'}</button></div>
     </form>
@@ -108,8 +108,8 @@ export function RestoreBackup({ onCancel }: { onCancel?: () => void }) {
     <form onSubmit={submit} className="panel" noValidate>
       <label className="filepick">
         <FileUp size={18} aria-hidden />
-        <span>{file ? file.name : 'Choose a .mira backup file'}</span>
-        <input type="file" accept=".mira,application/octet-stream,application/json" onChange={(e) => choose(e.target.files?.[0])} />
+        <span>{file ? file.name : 'Choose a .miraa backup file'}</span>
+        <input type="file" accept=".miraa,.mira,application/octet-stream,application/json" onChange={(e) => choose(e.target.files?.[0])} />
       </label>
       {file && (
         <>

@@ -89,7 +89,7 @@ export function BriefSheet({ appt }: { appt: Appointment }) {
 
       <div className="muted" style={{ marginTop: 'auto', paddingTop: 12, display: 'flex', justifyContent: 'space-between', fontSize: 10 }}>
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 10, height: 10, borderRadius: 2, background: 'var(--pine-tint)' }} />New since the last visit</span>
-        <span>Recorded by the family in Mira</span>
+        <span>Recorded by the family in Miraa</span>
       </div>
     </article>
   );
