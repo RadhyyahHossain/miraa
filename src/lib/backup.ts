@@ -1,10 +1,10 @@
-// Encrypted backup files (.miraa; older .mira files still restore). Everything is encrypted on the device with a passphrase:
+// Encrypted backup files (.miraa). Everything is encrypted on the device with a passphrase:
 // PBKDF2-SHA256 derives an AES-GCM key, so the file is unreadable without the passphrase.
 import { isoDay } from './dates';
 import { normalize } from './store';
 import type { State } from './types';
 
-const FORMAT = 'mira-backup';
+const FORMAT = 'miraa-backup';
 const ITERATIONS = 310_000;
 
 interface BackupFile {

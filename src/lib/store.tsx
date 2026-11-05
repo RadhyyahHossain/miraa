@@ -4,7 +4,7 @@ import type { CollectionName, Collections, State } from './types';
 import { sampleState } from './sample';
 
 const STATE_KEY = 'state';
-const LEGACY_LOCALSTORAGE_KEY = 'mira:v1';
+const LEGACY_LOCALSTORAGE_KEY = 'miraa:v1';
 
 export const emptyState = (): State => ({
   version: 1,
@@ -75,7 +75,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     let alive = true;
     load().then((s) => alive && setState(s));
     if (typeof BroadcastChannel !== 'undefined') {
-      channel.current = new BroadcastChannel('mira');
+      channel.current = new BroadcastChannel('miraa');
       channel.current.onmessage = () => {
         load().then((s) => {
           if (!alive) return;

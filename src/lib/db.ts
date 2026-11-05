@@ -1,7 +1,7 @@
 // Tiny key-value wrapper over IndexedDB, with localStorage as a fallback
 // for browsers that block IndexedDB (some private modes).
 
-const DB_NAME = 'mira';
+const DB_NAME = 'miraa';
 const STORE = 'kv';
 
 let dbPromise: Promise<IDBDatabase> | null = null;
@@ -37,7 +37,7 @@ export async function dbGet<T>(key: string): Promise<T | undefined> {
     return await run<T | undefined>('readonly', (s) => s.get(key));
   } catch {
     try {
-      const raw = localStorage.getItem(`mira:${key}`);
+      const raw = localStorage.getItem(`miraa:${key}`);
       return raw ? (JSON.parse(raw) as T) : undefined;
     } catch {
       return undefined;
@@ -50,7 +50,7 @@ export async function dbSet<T>(key: string, value: T): Promise<void> {
     await run('readwrite', (s) => s.put(value, key));
   } catch {
     try {
-      localStorage.setItem(`mira:${key}`, JSON.stringify(value));
+      localStorage.setItem(`miraa:${key}`, JSON.stringify(value));
     } catch {
       // Storage is blocked or full. The app keeps working in memory for this session.
     }

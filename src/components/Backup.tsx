@@ -109,7 +109,7 @@ export function RestoreBackup({ onCancel }: { onCancel?: () => void }) {
       <label className="filepick">
         <FileUp size={18} aria-hidden />
         <span>{file ? file.name : 'Choose a .miraa backup file'}</span>
-        <input type="file" accept=".miraa,.mira,application/octet-stream,application/json" onChange={(e) => choose(e.target.files?.[0])} />
+        <input type="file" accept=".miraa,application/octet-stream,application/json" onChange={(e) => choose(e.target.files?.[0])} />
       </label>
       {file && (
         <>
@@ -146,14 +146,14 @@ export function BackupStatus() {
 export function BackupReminder() {
   const { state } = useStore();
   const [hidden, setHidden] = useState(() => {
-    try { return sessionStorage.getItem('mira:hide-backup-reminder') === '1'; } catch { return false; }
+    try { return sessionStorage.getItem('miraa:hide-backup-reminder') === '1'; } catch { return false; }
   });
   const days = backupAgeDays(state.lastBackupAt);
   const hasRecords = !state.example && state.entries.length + state.appointments.length > 0;
   if (hidden || !hasRecords || (days !== null && days < BACKUP_STALE_DAYS)) return null;
   const hide = () => {
     setHidden(true);
-    try { sessionStorage.setItem('mira:hide-backup-reminder', '1'); } catch { /* ignore */ }
+    try { sessionStorage.setItem('miraa:hide-backup-reminder', '1'); } catch { /* ignore */ }
   };
   return (
     <div className="reminder" role="status">
